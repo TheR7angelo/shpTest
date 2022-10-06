@@ -38,7 +38,7 @@ public static partial class Shp
 // header
         var outDbaseHeader = new DbaseFileHeader {LastUpdateDate = DateTime.Now};
         outDbaseHeader.AddColumn("ID", 'N', 10, 0);
-        outDbaseHeader.AddColumn("test", 'N', 10, 0);
+        outDbaseHeader.AddColumn("test", 'S', 10, 0);
         outDbaseHeader = ShapefileDataWriter.GetHeader(outDbaseHeader.Fields, Math.Max(features.Count, 1));
         dataWriter.Header = outDbaseHeader;
 
