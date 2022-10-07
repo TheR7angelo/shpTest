@@ -6,7 +6,7 @@ namespace shpTest.Test;
 
 public static partial class Shp
 {
-    public static void Write(string filename, int srid)
+    public static void Write(string filename, int srid, Point point = new())
     {
         // const string filename = "test";
         // const int srid = 4326;
@@ -26,7 +26,7 @@ public static partial class Shp
         var att = new AttributesTable { { "ID", 1 }, {"test", "yolo"} };
 
 
-        var geomZ = geomFactory.CreatePoint(new Coordinate(0,0));
+        var geomZ = geomFactory.CreatePoint(new Coordinate(point.X,point.Y));
 
 // force geomz to geom xy using the shpWriter
         //var geom = shpWriter.Factory.CreateGeometry(geomZ);
