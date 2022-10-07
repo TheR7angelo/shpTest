@@ -6,7 +6,7 @@ namespace shpTest.Test;
 
 public static partial class Shp
 {
-    public static void Write(string filename, int srid, Point point = new())
+    public static void Write(string filename, int srid=4326, Point point=new())
     {
         // const string filename = "test";
         // const int srid = 4326;

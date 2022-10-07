@@ -5,7 +5,7 @@ namespace shpTest.Test;
 
 public static partial class Shp
 {
-    public static void Read(string filename, int srid)
+    public static void Read(string filename, int srid=4326)
     {
         var sequenceFactory = new NetTopologySuite.Geometries.Implementation.DotSpatialAffineCoordinateSequenceFactory(Ordinates.XY);
 

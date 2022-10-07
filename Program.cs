@@ -10,11 +10,10 @@ static class MyClass
         var i = TestASync().Result;
         TestSync();
         
-        const int srid = 4326;
         const string filename = "test";
 
-        Shp.Write(filename, srid, i);
-        Shp.Read(filename, srid);
+        Shp.Write(filename, point:i);
+        Shp.Read(filename);
     }
 
 
