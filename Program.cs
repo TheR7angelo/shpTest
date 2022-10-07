@@ -7,7 +7,7 @@ static class MyClass
 {
     public static void Main()
     {
-        var i = TestASync().Result;
+        var i = TestASync("C# app").Result;
         TestSync();
         
         const string filename = "test";
@@ -18,11 +18,11 @@ static class MyClass
 
 
 
-    public static async Task<Point> TestASync()
+    public static async Task<Point> TestASync(string userAgent)
     {
         var address = "3 chemin des vignes 33112".ParseToUrlFormat();
         var httpClient = new HttpClient{BaseAddress = new Uri("http://nominatim.openstreetmap.org")};
-        httpClient.DefaultRequestHeaders.Add("User-Agent", "C# App");
+        httpClient.DefaultRequestHeaders.Add("User-Agent", userAgent);
         var httpResult = await httpClient.GetAsync($"search?q={address}&format=json&polygon=1&addressdetails=1");
         var result = await httpResult.Content.ReadAsStringAsync();
         var r = JsonConvert.DeserializeObject(result) as JArray;
